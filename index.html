@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>User Agent Parser — Free UA String Decoder, Bots &amp; Client Hints | S3eidat Tools</title>
+<meta name="description" content="See your own user agent and client hints, or paste user agent strings (one per line) to get browser, engine, OS, device type, bots and HTTP clients. Table and JSON output. Free, private, runs in your browser.">
+<meta property="og:title" content="User Agent Parser — decode any browser user agent">
+<meta property="og:description" content="Browser, OS, device and bot detection from UA strings. Runs 100% in your browser.">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+<!--s3:seo-->
+<link rel="canonical" href="https://s3eidat.github.io/ua-parser/">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d0f12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="S3eidat Tools">
+<meta property="og:url" content="https://s3eidat.github.io/ua-parser/">
+<meta property="og:image" content="https://s3eidat.github.io/ua-parser/screenshot.png">
+<meta property="og:image:width" content="1280"><meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="User Agent Parser — Decode any browser user agent">
+<meta name="twitter:description" content="Decode any browser user agent. Free, private and runs 100% in your browser: no sign-up, no uploads.">
+<meta name="twitter:image" content="https://s3eidat.github.io/ua-parser/screenshot.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "User Agent Parser", "url": "https://s3eidat.github.io/ua-parser/", "description": "Decode any browser user agent. Free, private and runs 100% in your browser: no sign-up, no uploads.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "image": "https://s3eidat.github.io/ua-parser/screenshot.png", "author": {"@type": "Person", "name": "s3eidat", "url": "https://github.com/s3eidat"}}</script>
+<!--/s3:seo-->
+</head>
+<body data-tool="ua-parser">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>User Agent Parser</h1>
+    <p>See what your browser says about itself, or paste user agent strings from your logs to find out which browsers, devices, bots and scripts they are.</p>
+  </section>
+
+  <section class="card stack">
+    <div class="row between">
+      <h2>Your browser</h2>
+      <button class="btn small" id="copyMine"><svg class="i"><use href="#i-copy"/></svg>Copy user agent</button>
+    </div>
+    <div class="ua-mine" id="mine"></div>
+    <code class="ua-raw" id="raw"></code>
+    <div id="hints"></div>
+  </section>
+
+  <section class="card stack mt">
+    <div class="row between">
+      <h2>Parse user agents <small>one per line</small></h2>
+      <div class="row">
+        <button class="btn ghost small" id="sample">Sample</button>
+        <label class="btn ghost small" id="open">Open log<input type="file" accept=".txt,.log,.csv,text/plain" hidden></label>
+        <button class="btn ghost small" id="clear">Clear</button>
+      </div>
+    </div>
+    <label class="field"><span class="sr">User agent strings</span>
+      <textarea class="textarea" id="input" spellcheck="false" placeholder="Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1"></textarea>
+    </label>
+    <div class="row between">
+      <div class="row">
+        <div class="seg" id="view" role="group" aria-label="Output">
+          <button aria-pressed="true" data-v="table">Table</button>
+          <button aria-pressed="false" data-v="json">JSON</button>
+        </div>
+        <span class="faint" id="summary"></span>
+      </div>
+      <div class="row">
+        <button class="btn small" id="copy"><svg class="i"><use href="#i-copy"/></svg>Copy</button>
+        <button class="btn small" id="save"><svg class="i"><use href="#i-download"/></svg><span id="ext">.csv</span></button>
+      </div>
+    </div>
+    <div class="tbl-wrap ua-tbl" id="table"></div>
+    <pre class="out ua-json" id="json" hidden></pre>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
